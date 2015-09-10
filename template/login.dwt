@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,user.js,transport.js'}
+
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!--当前位置 start-->
+<div class="block box">
+ <div id="ur_here">
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  </div>
+</div>
+<!--当前位置 end-->
+<div class="blank"></div>
+
+<!--#登录界面 start-->
+<div class="usBox clearfix">
+  <div class="usBox_1 f_l" style="height:260px;">
+   <div class="logtitle"></div>
+   <center>
+       <img width="260px" id="yangcongqrcode"  src="{$auth.qrcode_url}">
+
+       <div id="return_yangcong_message" class="yangcong-message-box" style="margin-top:5px;">
+           {$auth.message}
+       </div>
+   </center>
+  </div>
+  <div class="usTxt">
+    <strong>{$lang.user_reg_info[0]}</strong>  <br />
+    <strong class="f4">{$lang.user_reg_info[1]}：</strong><br />
+    <!-- {if $car_off eq 1} -->
+    {$lang.user_reg_info[2]}<br />
+    <!--{/if}-->
+    <!-- {if $car_off eq 0} -->
+    {$lang.user_reg_info[8]}<br />
+    <!--{/if}-->
+    {$lang.user_reg_info[3]}：<br />
+    1. {$lang.user_reg_info[4]}<br />
+    2. {$lang.user_reg_info[5]}<br />
+    3. {$lang.user_reg_info[6]}<br />
+    4. {$lang.user_reg_info[7]}  <br />
+    <a href="user.php?act=register"><img src="images/bnt_ur_reg.gif" /></a>
+  </div>
+</div>
+<!--#登录界面 end-->
+
+<div class="blank"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
+<script type="text/javascript" src="plugins/yangcong/template/js/yangcong.js"></script>
+
+<script type="text/javascript">
+var yangcong_post_url = location.href;
+var event_id = '{$auth.event_id}';
+setInterval("yangcong_GetResult()", 3000);
+</script>
+</body>
+</html>
